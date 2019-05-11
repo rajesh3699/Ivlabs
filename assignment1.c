@@ -1,5 +1,24 @@
+
 #include<stdio.h>
 #include<math.h>
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+void bubbleSort(int lengths[], int m ,int prices[]) 
+{ 
+   int i, j; 
+   for (i = 0; i < m-1; i++)       
+  
+         
+       for (j = 0; j < m-i-1; j++)  
+           if (lengths[j] > lengths[j+1]) 
+              swap(&lengths[j], &lengths[j+1]); 
+              swap(&prices[j], &prices[j+1]); 
+              
+} 
 int max(int x, int y)
 {
     
@@ -44,20 +63,29 @@ int n;
 int lengths[m];
 int prices[m];
 
-printf("enter length of rod");
+//printf("enter length of rod");
  scanf("%d",&n);
  
-printf("enter size of length and price array");
+//printf("enter size of length and price array");
  scanf("%d",&m);
  
-printf("enter lengths");
+//printf("enter lengths");
 scan(m,lengths);
 
-printf("enter prices");
+//printf("enter prices");
 scan(m,prices);
+
+bubbleSort(lengths,m,prices); 
+
+
+
+
+for(int i=0;i<m;i++)
+{
+    printf("length=%d : prices=%d \n",lengths[i],prices[i]);
+    
+}
 
 printf("%d",maxPrice(m,prices));
 
 }
-
-
